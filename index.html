@@ -3,27 +3,91 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
   <title>Chaochao Blog</title>
 
   <link rel="stylesheet" href="./assets/style.css" />
 
-  <!-- Markdown 渲染库：marked（浏览器端渲染，不需要构建） -->
+  <!-- Markdown 渲染（无编译） -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
-  <header class="site-header">
-    <a class="brand" href="#/">Chaochao Blog</a>
-    <input id="q" class="search" placeholder="搜索标题/摘要/标签…" />
+  <header class="topbar">
+    <a class="brand" href="#/">
+      <span class="dot"></span>
+      <span>Chaochao Blog</span>
+    </a>
+
+    <nav class="nav">
+      <a class="nav-link" href="#/">Posts</a>
+      <a class="nav-link" href="#/tag/all">Tags</a>
+      <a class="nav-link" href="#/about">About</a>
+    </nav>
+
+    <div class="topbar-right">
+      <div class="searchbox">
+        <input id="q" placeholder="搜索标题 / 标签 / 摘要…" />
+        <span class="kbd">⌘K</span>
+      </div>
+
+      <button id="themeBtn" class="iconbtn" title="切换主题" aria-label="Toggle theme">
+        <span id="themeIcon">☾</span>
+      </button>
+    </div>
   </header>
 
-  <main class="container">
-    <section id="listView" class="card"></section>
-    <article id="postView" class="card hidden"></article>
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="card profile">
+        <div class="avatar" aria-hidden="true">C</div>
+        <div>
+          <div class="name">Chaochao</div>
+          <div class="desc">静态博客 · Markdown · Git push 即发布</div>
+        </div>
+
+        <div class="links">
+          <a class="pill" href="https://github.com/chaochao3321" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="pill" href="#/tag/all">Tags</a>
+          <a class="pill" href="#/about">About</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">热门标签</div>
+        <div id="tagCloud" class="tagcloud"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-title">外链</div>
+        <div class="list">
+          <a class="list-item" href="https://pages.github.com/" target="_blank" rel="noreferrer">GitHub Pages</a>
+          <a class="list-item" href="https://marked.js.org/" target="_blank" rel="noreferrer">Marked (Markdown)</a>
+        </div>
+      </section>
+
+      <section class="card small muted">
+        <div>无编译架构：维护静态文件 + Markdown</div>
+        <div>更新：commit & push 即发布</div>
+      </section>
+    </aside>
+
+    <section class="content">
+      <div id="notice" class="notice hidden"></div>
+
+      <!-- 列表 / 标签页 -->
+      <section id="listView" class="panel"></section>
+
+      <!-- 文章页 -->
+      <article id="postView" class="panel hidden"></article>
+
+      <!-- About -->
+      <section id="aboutView" class="panel hidden"></section>
+    </section>
   </main>
 
-  <footer class="site-footer">
-    <span>Powered by GitHub Pages • Static Markdown</span>
+  <footer class="footer">
+    <span>© <span id="year"></span> Chaochao • Powered by GitHub Pages • No build</span>
   </footer>
 
   <script src="./assets/app.js"></script>
