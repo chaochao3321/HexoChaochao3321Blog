@@ -5,5 +5,12 @@
     "date": "2026-02-09",
     "tags": ["blog", "markdown"],
     "summary": "纯静态 + Markdown，无需编译。"
+  },
+  {
+    "file": "2026-02-09-博客搭建过程.md",
+    "title": "静态博客搭建完整指南：从零开始构建无编译Markdown博客",
+    "date": "2026-02-09",
+    "tags": ["blog", "markdown", "tutorial"],
+    "summary": "详细介绍如何搭建一个无编译、基于GitHub Pages的静态博客系统。"
   }
 ]
