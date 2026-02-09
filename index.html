@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chaochao Blog</title>
+
+  <link rel="stylesheet" href="./assets/style.css" />
+
+  <!-- Markdown 渲染库：marked（浏览器端渲染，不需要构建） -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="#/">Chaochao Blog</a>
+    <input id="q" class="search" placeholder="搜索标题/摘要/标签…" />
+  </header>
+
+  <main class="container">
+    <section id="listView" class="card"></section>
+    <article id="postView" class="card hidden"></article>
+  </main>
+
+  <footer class="site-footer">
+    <span>Powered by GitHub Pages • Static Markdown</span>
+  </footer>
+
+  <script src="./assets/app.js"></script>
+</body>
+</html>

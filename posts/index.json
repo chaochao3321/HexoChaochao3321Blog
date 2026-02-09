@@ -1,0 +1,9 @@
+[
+  {
+    "file": "2026-02-09-hello.md",
+    "title": "Hello, GitHub Pages",
+    "date": "2026-02-09",
+    "tags": ["blog", "markdown"],
+    "summary": "这是第一篇文章：纯静态 + Markdown，无需编译。"
+  }
+]
