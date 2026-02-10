@@ -2,8 +2,13 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#0b0d12" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f6f8fc" media="(prefers-color-scheme: light)" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <title>Chaochao Blog</title>
 
   <link rel="stylesheet" href="./assets/style.css" />
@@ -19,7 +24,11 @@
       <span>Chaochao Blog</span>
     </a>
 
-    <nav class="nav">
+    <button id="menuBtn" class="mobile-menu-btn iconbtn" title="菜单" aria-label="Toggle menu">
+      <span>☰</span>
+    </button>
+
+    <nav id="navMenu" class="nav">
       <a class="nav-link" href="#/">Posts</a>
       <a class="nav-link" href="#/tag/all">Tags</a>
       <a class="nav-link" href="#/about">About</a>

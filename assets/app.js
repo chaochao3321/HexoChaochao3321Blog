@@ -16,6 +16,8 @@ const tagCloud = document.getElementById("tagCloud");
 const themeBtn = document.getElementById("themeBtn");
 const themeIcon = document.getElementById("themeIcon");
 const yearEl = document.getElementById("year");
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
 
 let postsIndex = []; // from posts/index.json
 
@@ -250,12 +252,38 @@ function toggleTheme() {
   applyTheme(cur === "light" ? "dark" : "light");
 }
 
+/* mobile menu */
+function toggleMobileMenu() {
+  navMenu.classList.toggle("active");
+}
+
+function closeMobileMenu() {
+  navMenu.classList.remove("active");
+}
+
 /* init */
 (async function init() {
   yearEl.textContent = String(new Date().getFullYear());
 
   applyTheme(getPreferredTheme());
   themeBtn.addEventListener("click", toggleTheme);
+  
+  // Mobile menu events
+  if (menuBtn && navMenu) {
+    menuBtn.addEventListener("click", toggleMobileMenu);
+    
+    // Close menu when clicking nav links
+    navMenu.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+  }
 
   // Cmd/Ctrl + K focus search
   window.addEventListener("keydown", (e) => {
